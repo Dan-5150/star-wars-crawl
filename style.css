@@ -141,6 +141,7 @@ button:hover {
   display: none;
   position: absolute;
   width: 20%;
+  min-width: 300px;
   min-height: 10vh;
   top: 50px;
   top: -300px;
@@ -174,6 +175,12 @@ audio {
 @media (max-width: 992px) {
   #intro h1 {
     font-size: 200%;
+  }
+}
+
+@media (max-width: 768px) {
+  #intro h1 {
+    font-size: 150%;
   }
 }
 
