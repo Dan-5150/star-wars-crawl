@@ -4,4 +4,5 @@ A recreation of the opening Star Wars crawl using JavaScript. Movie data is take
 
 ## How To Use
 
-Just pick a movie and the crawl will start playing!
+1. Visit https://dan-5150.github.io/star-wars-crawl/
+2. Pick a movie and the crawl will start playing!
