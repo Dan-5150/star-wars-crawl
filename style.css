@@ -1,0 +1,259 @@
+html, body {
+  font-family: 'Pathway Gothic One', sans-serif;
+}
+
+body {
+  background-color: black;
+  background-image: url('./assets/star-background.gif');
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+#container {
+  padding: 2rem;
+}
+
+h1, h2, h3, h4, h5, h6, p, span {
+  color: #feda4a;
+  text-transform: capitalize;
+}
+
+.fas {
+  margin-right: 5px;
+}
+
+/* Button styles */
+button {
+  cursor: pointer;
+  margin: 0 0.25rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  background-color: #feda4a;
+  color: black;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: chocolate;
+  transform: scale(0.95);
+}
+
+#back-button {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+}
+
+#mute-button {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+}
+
+#controls {
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  text-align: center;
+}
+
+/* Star wars crawl */
+.star-wars {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  height: 535px;
+  perspective: 300px;
+  position: fixed;
+  bottom: -300px;
+  width: 100%;
+  z-index: -1;
+}
+
+/* Crawl text */
+.star-wars h1, .star-wars p {
+  color: #feda4a;
+  font-size: 300%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+}
+
+/* Crawl animation */
+.crawl {
+  position: relative;
+  top: 99999px;
+  transform-origin: 50% 15%;
+  animation: crawl 180s linear;
+  animation-delay: 16s;
+}
+
+@keyframes crawl {
+  0% {
+    top: 0px;
+    transform: rotateX(20deg) translateZ(0);
+  }
+  100% { 
+    top: -6000px;
+    transform: rotateX(25deg) translateZ(-2500px);
+  }
+}
+
+/* Crawl titles */
+#title {
+  font-size: 90%;
+  text-align: center;
+  margin-top: 250px;
+}
+
+#title > h1 {
+  margin: 0 0 100px;
+  text-transform: uppercase;
+}
+
+#crawl > p {
+  text-align: justify;
+  text-align-last: justify;
+  width: 945px;
+  white-space: pre-line;
+}
+
+#fade {
+  display: none;
+  position: absolute;
+  width: 20%;
+  min-height: 10vh;
+  top: 50px;
+  top: -300px;
+  background-image: linear-gradient(0deg, transparent, black 75%);
+  z-index: -1;
+}
+
+audio {
+  display: none;
+  margin: auto;
+  width: 100%;
+}
+
+#intro, #logo {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* A long time ago... text */
+#intro h1 {
+  margin: auto;
+  font-size: 400%;
+  font-weight: 400;
+  color: rgb(75, 213, 238);
+  opacity: 0;
+  animation: intro 6s ease-out;
+}
+
+@media (max-width: 992px) {
+  #intro h1 {
+    font-size: 200%;
+  }
+}
+
+@keyframes intro {
+  0% {
+    opacity: 0;
+  }  
+  20% { 
+    opacity: 1; 
+  }
+  90% { 
+    opacity: 1; 
+  }
+  100% { 
+    opacity: 0;
+  }
+}
+
+/* Star wars logo animation */
+#logo img {
+  margin: auto;
+  transform: scale(0);
+  animation: logo 6s ease-out 8.6s;
+  /* animation-delay: 8.4s; */
+}
+
+@keyframes logo {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+/* Movie cards */
+#ep-card-container {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  gap: 15px;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+@media (max-width: 992px) {
+  #ep-card-container {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  #ep-card-container {
+    grid-template-columns: 100%;
+  }
+}
+
+.ep-card {
+  grid-column: 33%;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  height: 30vh;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.ep-card:hover {
+  transform: scale(0.95);
+  background-size: cover;
+  background-position-y: 20%;
+}
+
+.ep-card:hover > img {
+  display: none;
+}
+
+.ep-1:hover {
+  background-image: url('./assets/The_Phantom_Menace_Poster.png');
+}
+.ep-2:hover {
+  background-image: url('./assets/Attack_of_the_Clones_Poster.jpg');
+}
+.ep-3:hover {
+  background-image: url('./assets/Revenge_of_the_Sith_Poster.jpg');
+}
+.ep-4:hover {
+  background-image: url('./assets/Star_Wars_Poster.png');
+}
+.ep-5:hover {
+  background-image: url('./assets/Empire_Strikes_Back_Poster.jpg');
+}
+.ep-6:hover {
+  background-image: url('./assets/Return_of_the_Jedi_Poster.jpg');
+}
