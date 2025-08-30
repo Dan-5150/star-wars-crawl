@@ -3,8 +3,8 @@
  * 
  * @param {number} episodeNum Episode number to get data for
  */
- async function fetchData(episodeNum) {
-  const response = await fetch(`https://swapi.dev/api/films/${episodeNum}`);
+async function fetchData(episodeNum) {
+  const response = await fetch(`https://swapi.info/api/films/${episodeNum}`);
   if (!response.ok) {
     throw new Error("Something went wrong!");
   }
