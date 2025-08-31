@@ -41,11 +41,11 @@ button {
   color: black;
   border: none;
   transition: all 0.2s ease-in-out;
-}
 
-button:hover {
-  background-color: chocolate;
-  transform: scale(0.95);
+  &:hover {
+    background-color: chocolate;
+    transform: scale(0.95);
+  }
 }
 
 #back-button {
@@ -95,16 +95,16 @@ button:hover {
   bottom: -300px;
   width: 100%;
   z-index: -1;
-}
 
-/* Crawl text */
-.star-wars h1,
-.star-wars p {
-  color: #feda4a;
-  font-size: 300%;
-  font-weight: 600;
-  letter-spacing: 6px;
-  line-height: 150%;
+  /* Crawl text */
+  & h1,
+  & p {
+    color: #feda4a;
+    font-size: 300%;
+    font-weight: 600;
+    letter-spacing: 6px;
+    line-height: 150%;
+  }
 }
 
 /* Crawl animation */
@@ -114,6 +114,13 @@ button:hover {
   transform-origin: 50% 15%;
   animation: crawl 180s linear;
   animation-delay: 16s;
+
+  & > p {
+    text-align: justify;
+    text-align-last: justify;
+    width: 945px;
+    white-space: pre-line;
+  }
 }
 
 @keyframes crawl {
@@ -132,18 +139,11 @@ button:hover {
   font-size: 90%;
   text-align: center;
   margin-top: 250px;
-}
 
-#title > h1 {
-  margin: 0 0 100px;
-  text-transform: uppercase;
-}
-
-#crawl > p {
-  text-align: justify;
-  text-align-last: justify;
-  width: 945px;
-  white-space: pre-line;
+  & > h1 {
+    margin: 0 0 100px;
+    text-transform: uppercase;
+  }
 }
 
 #fade {
@@ -258,16 +258,16 @@ audio {
   align-items: center;
   transition: transform 0.2s ease-in-out;
   cursor: pointer;
-}
 
-.ep-card:hover {
-  transform: scale(0.95);
-  background-size: cover;
-  background-position-y: 20%;
-}
+  &:hover {
+    transform: scale(0.95);
+    background-size: cover;
+    background-position-y: 20%;
 
-.ep-card:hover > img {
-  display: none;
+    & > img {
+      display: none;
+    }
+  }
 }
 
 .ep-1:hover {

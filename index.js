@@ -4,12 +4,14 @@
  * @param {number} episodeNum Episode number to get data for
  */
 async function fetchData(episodeNum) {
-  const response = await fetch(`https://swapi.info/api/films/${episodeNum}`)
-  if (!response.ok) {
-    throw new Error('Something went wrong!')
+  try {
+    const response = await fetch(`https://swapi.info/api/films/${episodeNum}`)
+    const responseData = await response.json()
+    return responseData
+  } catch (error) {
+    console.error(error)
+    throw new Error('Failed to fetch data from API')
   }
-  const responseData = await response.json()
-  return responseData
 }
 
 /**
@@ -18,16 +20,15 @@ async function fetchData(episodeNum) {
  * @param {number} episodeNum Episode number to play crawl from
  */
 async function playCrawl(episodeNum) {
+  // Get film data
+  const responseData = await fetchData(episodeNum)
+
   // Start playing audio
   const audioEl = document.getElementById('audio')
   audioEl.play()
 
   // Convert episode number to roman numeral
   const romanNumEpisode = convertToRomanNumeral(episodeNum)
-
-  // Get film data
-  const responseData = await fetchData(episodeNum)
-  console.log(responseData)
 
   // Hide buttons
   document.getElementById('container').style.display = 'none'
@@ -57,11 +58,11 @@ async function playCrawl(episodeNum) {
   epNumEl.innerHTML = `Episode ${romanNumEpisode}`
   titleEl.appendChild(epNumEl)
 
-  const headingEl = document.createElement(`h1`)
+  const headingEl = document.createElement('h1')
   headingEl.innerHTML = responseData.title
   titleEl.appendChild(headingEl)
 
-  const crawlTextEl = document.createElement(`p`)
+  const crawlTextEl = document.createElement('p')
   crawlTextEl.innerHTML = responseData.opening_crawl
   crawlElement.appendChild(crawlTextEl)
 
@@ -85,32 +86,78 @@ function stopPlayback() {
  * @returns Roman numeral equivalent
  */
 function convertToRomanNumeral(number) {
-  switch (number) {
-    case 1:
-      return 'IV'
-    case 2:
-      return 'V'
-    case 3:
-      return 'VI'
-    case 4:
-      return 'I'
-    case 5:
-      return 'II'
-    case 6:
-      return 'III'
-    default:
-      return ''
+  const romanNumerals = {
+    1: 'IV',
+    2: 'V',
+    3: 'VI',
+    4: 'I',
+    5: 'II',
+    6: 'III',
+  }
+
+  return romanNumerals[number] || ''
+}
+
+/**
+ * Toggles muted audio and updates button text/icon
+ */
+function muteAudio() {
+  const audioEl = document.getElementById('audio')
+  const muteButton = document.getElementById('mute-button')
+  const icon = muteButton.querySelector('i')
+
+  // Toggle the muted state
+  audioEl.muted = !audioEl.muted
+
+  // Update button text and icon based on muted state
+  if (audioEl.muted) {
+    // Audio is now muted
+    icon.className = 'fas fa-volume-mute'
+    muteButton.innerHTML = '<i class="fas fa-volume-mute"></i> Unmute Audio'
+  } else {
+    // Audio is now unmuted
+    icon.className = 'fas fa-volume-up'
+    muteButton.innerHTML = '<i class="fas fa-volume-up"></i> Mute Audio'
   }
 }
 
 /**
- * Toggles muted audio
+ * Initialize event listeners when DOM is loaded
  */
-function muteAudio() {
-  const audioEl = document.getElementById('audio')
-  if (!audioEl.muted) {
-    audioEl.muted = true
-  } else {
-    audioEl.muted = false
+function initializeEventListeners() {
+  // Back button event listener
+  const backButton = document.getElementById('back-button')
+  if (backButton) {
+    backButton.addEventListener('click', stopPlayback)
   }
+
+  // Mute button event listener
+  const muteButton = document.getElementById('mute-button')
+  if (muteButton) {
+    muteButton.addEventListener('click', muteAudio)
+  }
+
+  // Episode card event listeners using event delegation
+  const episodeContainer = document.getElementById('ep-card-container')
+  if (episodeContainer) {
+    episodeContainer.addEventListener('click', function (event) {
+      // Find the closest episode card
+      const episodeCard = event.target.closest('.ep-card')
+      if (episodeCard) {
+        // Get the episode number from data attribute
+        const episodeNum = episodeCard.dataset.episode
+        if (episodeNum) {
+          playCrawl(parseInt(episodeNum))
+        }
+      }
+    })
+  }
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeEventListeners)
+} else {
+  // DOM is already loaded
+  initializeEventListeners()
 }

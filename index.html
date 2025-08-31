@@ -31,17 +31,11 @@
   </head>
 
   <body>
-    <button
-      id="back-button"
-      onclick="stopPlayback()"
-    >
+    <button id="back-button">
       <i class="fas fa-sync-alt"></i>
       Reload
     </button>
-    <button
-      id="mute-button"
-      onclick="muteAudio()"
-    >
+    <button id="mute-button">
       <i class="fas fa-volume-up"></i>
       Mute Audio
     </button>
@@ -73,7 +67,7 @@
         <div id="ep-card-container">
           <div
             class="ep-card ep-1"
-            onclick="playCrawl(4)"
+            data-episode="4"
           >
             <img
               src="./assets/episode-1.png"
@@ -83,7 +77,7 @@
           </div>
           <div
             class="ep-card ep-2"
-            onclick="playCrawl(5)"
+            data-episode="5"
           >
             <img
               src="./assets/episode-2.png"
@@ -93,7 +87,7 @@
           </div>
           <div
             class="ep-card ep-3"
-            onclick="playCrawl(6)"
+            data-episode="6"
           >
             <img
               src="./assets/episode-3.png"
@@ -103,7 +97,7 @@
           </div>
           <div
             class="ep-card ep-4"
-            onclick="playCrawl(1)"
+            data-episode="1"
           >
             <img
               src="./assets/episode-4.png"
@@ -113,7 +107,7 @@
           </div>
           <div
             class="ep-card ep-5"
-            onclick="playCrawl(2)"
+            data-episode="2"
           >
             <img
               src="./assets/episode-5.png"
@@ -123,7 +117,7 @@
           </div>
           <div
             class="ep-card ep-6"
-            onclick="playCrawl(3)"
+            data-episode="3"
           >
             <img
               src="./assets/episode-6.png"
