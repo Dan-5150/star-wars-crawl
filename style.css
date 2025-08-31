@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   font-family: 'Pathway Gothic One', sans-serif;
 }
 
@@ -14,7 +15,14 @@ body {
   padding: 2rem;
 }
 
-h1, h2, h3, h4, h5, h6, p, span {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
   color: #feda4a;
   text-transform: capitalize;
 }
@@ -58,7 +66,7 @@ button:hover {
     left: 15px;
     padding: 0.5rem;
   }
-  
+
   #mute-button {
     top: 15px;
     right: 15px;
@@ -90,7 +98,8 @@ button:hover {
 }
 
 /* Crawl text */
-.star-wars h1, .star-wars p {
+.star-wars h1,
+.star-wars p {
   color: #feda4a;
   font-size: 300%;
   font-weight: 600;
@@ -112,7 +121,7 @@ button:hover {
     top: 0px;
     transform: rotateX(20deg) translateZ(0);
   }
-  100% { 
+  100% {
     top: -6000px;
     transform: rotateX(25deg) translateZ(-2500px);
   }
@@ -155,7 +164,8 @@ audio {
   width: 100%;
 }
 
-#intro, #logo {
+#intro,
+#logo {
   display: none;
   justify-content: center;
   align-items: center;
@@ -187,14 +197,14 @@ audio {
 @keyframes intro {
   0% {
     opacity: 0;
-  }  
-  20% { 
-    opacity: 1; 
   }
-  90% { 
-    opacity: 1; 
+  20% {
+    opacity: 1;
   }
-  100% { 
+  90% {
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
   }
 }

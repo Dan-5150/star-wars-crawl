@@ -1,30 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A recreation of the opening Star Wars crawl using JavaScript.">
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta
+      name="description"
+      content="A recreation of the opening Star Wars crawl using JavaScript."
+    />
     <title>Star Wars Crawl</title>
-    <link rel="icon" href="./assets/jedi-solid.svg">
-    <link rel="stylesheet" href="./style.css">
-    <script src="https://kit.fontawesome.com/e97f15238d.js" crossorigin="anonymous"></script>
+    <link
+      rel="icon"
+      href="./assets/jedi-solid.svg"
+    />
+    <link
+      rel="stylesheet"
+      href="./style.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/e97f15238d.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="./index.js"></script>
   </head>
 
   <body>
-    <button id="back-button" onclick="stopPlayback()">
+    <button
+      id="back-button"
+      onclick="stopPlayback()"
+    >
       <i class="fas fa-sync-alt"></i>
       Reload
     </button>
-    <button id="mute-button" onclick="muteAudio()">
+    <button
+      id="mute-button"
+      onclick="muteAudio()"
+    >
       <i class="fas fa-volume-up"></i>
       Mute Audio
     </button>
 
-    <audio id="audio" preload="auto" controls>
-      <source src="https://s.cdpn.io/1202/Star_Wars_original_opening_crawl_1977.ogg" type="audio/ogg" />
-      <source src="https://s.cdpn.io/1202/Star_Wars_original_opening_crawl_1977.mp3" type="audio/mpeg" />
+    <audio
+      id="audio"
+      preload="auto"
+      controls
+    >
+      <source
+        src="https://s.cdpn.io/1202/Star_Wars_original_opening_crawl_1977.ogg"
+        type="audio/ogg"
+      />
+      <source
+        src="https://s.cdpn.io/1202/Star_Wars_original_opening_crawl_1977.mp3"
+        type="audio/mpeg"
+      />
     </audio>
 
     <div id="container">
@@ -37,34 +71,84 @@
         <p>Click on a movie and enjoy!</p>
 
         <div id="ep-card-container">
-          <div class="ep-card ep-1" onclick="playCrawl(4)">
-            <img src="./assets/episode-1.png" alt="Episode 1" width="280px" />
+          <div
+            class="ep-card ep-1"
+            onclick="playCrawl(4)"
+          >
+            <img
+              src="./assets/episode-1.png"
+              alt="Episode 1"
+              width="280px"
+            />
           </div>
-          <div class="ep-card ep-2" onclick="playCrawl(5)">
-            <img src="./assets/episode-2.png" alt="Episode 2" width="280px" />
+          <div
+            class="ep-card ep-2"
+            onclick="playCrawl(5)"
+          >
+            <img
+              src="./assets/episode-2.png"
+              alt="Episode 2"
+              width="280px"
+            />
           </div>
-          <div class="ep-card ep-3" onclick="playCrawl(6)">
-            <img src="./assets/episode-3.png" alt="Episode 3" width="280px" />
+          <div
+            class="ep-card ep-3"
+            onclick="playCrawl(6)"
+          >
+            <img
+              src="./assets/episode-3.png"
+              alt="Episode 3"
+              width="280px"
+            />
           </div>
-          <div class="ep-card ep-4" onclick="playCrawl(1)">
-            <img src="./assets/episode-4.png" alt="Episode 4" width="280px" />
+          <div
+            class="ep-card ep-4"
+            onclick="playCrawl(1)"
+          >
+            <img
+              src="./assets/episode-4.png"
+              alt="Episode 4"
+              width="280px"
+            />
           </div>
-          <div class="ep-card ep-5" onclick="playCrawl(2)">
-            <img src="./assets/episode-5.png" alt="Episode 5" width="280px" />
+          <div
+            class="ep-card ep-5"
+            onclick="playCrawl(2)"
+          >
+            <img
+              src="./assets/episode-5.png"
+              alt="Episode 5"
+              width="280px"
+            />
           </div>
-          <div class="ep-card ep-6" onclick="playCrawl(3)">
-            <img src="./assets/episode-6.png" alt="Episode 6" width="280px" />
+          <div
+            class="ep-card ep-6"
+            onclick="playCrawl(3)"
+          >
+            <img
+              src="./assets/episode-6.png"
+              alt="Episode 6"
+              width="280px"
+            />
           </div>
         </div>
       </div>
     </div>
 
     <section id="intro">
-      <h1>A long time ago, in a galaxy far,<br /> far away....</h1>
+      <h1>
+        A long time ago, in a galaxy far,<br />
+        far away....
+      </h1>
     </section>
 
     <section id="logo">
-      <img src="./assets/Star_Wars_Logo.png" alt="Star Wars Logo" width="800px" height="483px" />
+      <img
+        src="./assets/Star_Wars_Logo.png"
+        alt="Star Wars Logo"
+        width="800px"
+        height="483px"
+      />
     </section>
 
     <section class="star-wars">
